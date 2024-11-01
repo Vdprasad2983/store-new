@@ -13,7 +13,7 @@ conn=psycopg2.connect(host=DB_HOST,
 cur=conn.cursor()
 cur.execute(
     """
-    CREATE TABLE IF NOT EXISTS storedata(USERNAME TEXT(50),PASSWORD TEXT(50),DATEOFBIRTH TEXT(50),MAIL TEXT(50),MOBILE TEXT(50),DATE TEXT(50))
+    CREATE TABLE IF NOT EXISTS storedata(USERNAME VARCHAR(50),PASSWORD VARCHAR(50),DATEOFBIRTH VARCHAR(50),MAIL VARCHAR(50),MOBILE VARCHAR(50),DATE VARCHAR(50))
     """)
-cur.execute("INSERT INTO storedata VALUES (?,?,?,?,?,?)",('hkahfkahfkh','agkfgkah','fgak','agfgakfgakf','hkakfgakgf','gakfkah'))
+cur.execute("INSERT INTO storedata(USERNAME, PASSWORD, DATEOFBIRTH, MAIL, MOBILE,DATE) VALUES (%s, %s, %s, %s, %s, %s)",('hkahfkahfkh','agkfgkah','fgak','agfgakfgakf','hkakfgakgf','gakfkah'))
 st.button("submit")
